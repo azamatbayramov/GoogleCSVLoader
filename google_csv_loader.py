@@ -65,6 +65,7 @@ class User:
 
 def get_contacts(filename: str) -> list[User]:
     contacts_list: list[User] = []
+
     with open(filename, newline='', encoding='utf8') as csvfile:
         reader = csv.reader(csvfile)
 
