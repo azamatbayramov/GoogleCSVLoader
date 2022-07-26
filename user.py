@@ -1,5 +1,5 @@
 class User:
-    def __init__(self, lst: list, dict_n: dict):
+    def __init__(self, lst: list[str], dict_n: dict):
         self.lst = lst
 
         self.full_name = self.lst[dict_n['Name']]
