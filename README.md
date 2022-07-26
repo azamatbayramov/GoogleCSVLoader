@@ -17,7 +17,9 @@ Module for loading information from Google Contacts CSV into user-friendly Pytho
 ### 3. Done! You have a list of Contacts. You can use it.
 
     ...
-    contacts_without_birthday = [contact for contact in contacts if not contact.get_birthday()]
+    contacts_without_birthday = [c for c in contacts if not c.get_birthday()]
     
-    teachers_with_phones = [contact for contact in contacts if 'Teacher' in contact.get_groups() and contact.get_phones()]
+    teachers_with_phones = [c for c in contacts if "Teacher" in c.get_groups() and c.get_phones()]
+    
+    friends_without_websites = [c for c in contacts if 'Friend' in c.groups() and not c.get_websites()]
     
