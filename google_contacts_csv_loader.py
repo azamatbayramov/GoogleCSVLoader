@@ -1,7 +1,7 @@
 import csv
 
 
-class User:
+class Contact:
     def __init__(self, lst: list[str], dict_n: dict):
         self.lst = lst
 
@@ -57,14 +57,14 @@ class User:
         return self.websites
 
     def __str__(self):
-        return f'User[Name: {self.full_name}, Birthday: {self.birthday}, Groups: {self.groups}, Phones: {self.phones}, Websites: {self.websites}]'
+        return f'Contact[Name: {self.full_name}, Birthday: {self.birthday}, Groups: {self.groups}, Phones: {self.phones}, Websites: {self.websites}]'
 
     def __repr__(self):
         return self.__str__()
 
 
-def get_contacts(filename: str, encoding='utf8') -> list[User]:
-    contacts_list: list[User] = []
+def get_contacts(filename: str, encoding='utf8') -> list[Contact]:
+    contacts_list: list[Contact] = []
 
     with open(filename, newline='', encoding=encoding) as csvfile:
         reader = csv.reader(csvfile)
@@ -72,6 +72,6 @@ def get_contacts(filename: str, encoding='utf8') -> list[User]:
         index_dict = {j: i for i, j in enumerate(reader.__next__())}
 
         for row in reader:
-            contacts_list.append(User(row, index_dict))
+            contacts_list.append(Contact(row, index_dict))
 
     return contacts_list
