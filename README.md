@@ -21,5 +21,5 @@ Module for loading information from Google Contacts CSV into user-friendly Pytho
     
     teachers_with_phones = [c for c in contacts if "Teacher" in c.get_groups() and c.get_phones()]
     
-    friends_without_websites = [c for c in contacts if 'Friend' in c.groups() and not c.get_websites()]
+    friends_without_websites = [c for c in contacts if "Friend" in c.groups() and not c.get_websites()]
     
