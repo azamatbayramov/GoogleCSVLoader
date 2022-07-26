@@ -63,10 +63,10 @@ class User:
         return self.__str__()
 
 
-def get_contacts(filename: str) -> list[User]:
+def get_contacts(filename: str, encoding='utf8') -> list[User]:
     contacts_list: list[User] = []
 
-    with open(filename, newline='', encoding='utf8') as csvfile:
+    with open(filename, newline='', encoding=encoding) as csvfile:
         reader = csv.reader(csvfile)
 
         index_dict = {j: i for i, j in enumerate(reader.__next__())}
