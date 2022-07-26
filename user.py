@@ -1,5 +1,5 @@
 class User:
-    def __init__(self, lst, dict_n):
+    def __init__(self, lst: list, dict_n: dict):
         self.lst = lst
 
         self.full_name = self.lst[dict_n['Name']]
@@ -14,32 +14,29 @@ class User:
 
         self.phones = []
 
-        i = 0
-        while True:
-            i += 1
-            q = dict_n.get(f"Phone {i} - Value")
-            if q:
-                phone = self.lst[q]
-                if phone:
-                    self.phones.append(phone)
-                else:
-                    break
-            else:
+        for i in range(1, 10 ** 10):
+            index = dict_n.get(f"Phone {i} - Value")
+            if not index:
                 break
+
+            phone = self.lst[index]
+            if not phone:
+                break
+
+            self.phones.append(phone)
+
         self.websites = []
 
-        i = 0
-        while True:
-            i += 1
-            q = dict_n.get(f"Website {i} - Value")
-            if q:
-                website = self.lst[q]
-                if website:
-                    self.websites.append('https://' + website if 'https' not in website else website)
-                else:
-                    break
-            else:
+        for i in range(1, 10 ** 10):
+            index = dict_n.get(f"Website {i} - Value")
+            if not index:
                 break
+
+            website = self.lst[index]
+            if not website:
+                break
+
+            self.websites.append('https://' + website if 'https' not in website else website)
 
     def get_full_name(self):
         return self.full_name
